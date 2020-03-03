@@ -1,0 +1,114 @@
+html {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 900px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+body {
+  margin: 0;
+  background: #1c2022;
+}
+
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  height: -webkit-fill-available;
+}
+
+.Board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Board__header {
+  font-family: neon;
+  margin-top: 0;
+  display: block;
+  font-size: 3rem;
+}
+
+.Board__header--orange {
+  color: #fb4264;
+  text-shadow: 0 0 3vw #f40a35;
+  animation: orange 1s ease infinite;
+  -moz-animation: orange 1s ease infinite;
+  -webkit-animation: orange 1s ease infinite;
+}
+
+@keyframes orange {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #fa1c16, 0 0 3vw #fa1c16, 0 0 10vw #fa1c16,
+      0 0 10vw #fa1c16, 0 0 0.4vw #fed128, 0.5vw 0.5vw 0.1vw #806914;
+    color: #fed128;
+  }
+  50% {
+    text-shadow: 0 0 0.5vw #800e0b, 0 0 1.5vw #800e0b, 0 0 5vw #800e0b,
+      0 0 5vw #800e0b, 0 0 0.2vw #800e0b, 0.5vw 0.5vw 0.1vw #40340a;
+    color: #806914;
+  }
+}
+
+.Board__header--blue {
+  color: #426dfb;
+  text-shadow: 0 0 3vw #2356ff;
+  animation: blue 2s linear infinite;
+  -moz-animation: blue 2s linear infinite;
+  -webkit-animation: blue 2s linear infinite;
+  -o-animation: blue 2s linear infinite;
+}
+
+@keyframes blue {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041ff, 0 0 3vw #1041ff, 0 0 10vw #1041ff,
+      0 0 10vw #1041ff, 0 0 0.4vw #8bfdfe, 0.5vw 0.5vw 0.1vw #147280;
+    color: #28d7fe;
+  }
+  50% {
+    text-shadow: 0 0 0.5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180,
+      0 0 5vw #082180, 0 0 0.2vw #082180, 0.5vw 0.5vw 0.1vw #0a3940;
+    color: #146c80;
+  }
+}
+
+.Board__grid {
+  display: grid;
+  width: 15rem;
+  height: 15rem;
+  grid-template-columns: repeat(var(--ncols), auto);
+  grid-template-rows: repeat(var(--nrows), auto);
+  box-shadow: 0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
+  grid-gap: 2px;
+  cursor: pointer;
+}
+
+.Cell {
+  border: 1px solid black;
+  background-color: #263238;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.Cell--lit {
+  background-color: #00bcd4;
+}
